@@ -1,7 +1,4 @@
 name: Build and publish Doxygen docs
- on:
-  release:
-    types: [published]
   jobs: 
     build-docs:
       steps:
