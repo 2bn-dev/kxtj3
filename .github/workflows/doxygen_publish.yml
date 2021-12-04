@@ -5,7 +5,7 @@ on:
 jobs: 
   build-docs:
     name: Build doxygen docs
-      steps:
-        - uses: lukka/get-cmake@latest
-        - uses: actions/checkout@v2
-        - uses: lukka/run-cmake@v10
+    steps:
+      - uses: lukka/get-cmake@latest
+      - uses: actions/checkout@v2
+      - uses: lukka/run-cmake@v10
