@@ -1,4 +1,10 @@
 # KXTJ3-1057 Accelerometer C library
+[![Build and publish Doxygen docs](https://github.com/2bn-dev/kxtj3/actions/workflows/doxygen_publish.yml/badge.svg)](https://github.com/2bn-dev/kxtj3/actions/workflows/doxygen_publish.yml)
+[![Build Example Apps for RP2040](https://github.com/2bn-dev/kxtj3/actions/workflows/cmake.yml/badge.svg)](https://github.com/2bn-dev/kxtj3/actions/workflows/cmake.yml)
+
+## Documentation
+
+https://2bn-dev.github.io/kxtj3/
 
 This library implements the API for accessing the Rohm / Kionix KXTJ3-1057 Accelerometer. It implements all interfaces in the datasheet. It is a low cost, 3-axis accelerometer with I2C communication as well as an interrupt interface. It supports 8 bit, 12 bit, and 14 bit depths, +/- 2G, 4G, 8G, or 16G ranges, and many output data rates from 0.781 Hz to 1600 Hz. It provides extreme low power modes with wake-up interrupt configuration settings.
 
