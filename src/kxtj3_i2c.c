@@ -1,3 +1,7 @@
+/*! \file
+ * \brief Contains non-hardware specific I2C code
+ */
+
 #include "kxtj3_i2c.h"
 #include "kxtj3_registers.h"
 #include "kxtj3_debug.h"

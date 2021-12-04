@@ -1,3 +1,6 @@
+/*! \file
+ * \brief Code for RP2040 specific I2C implementation
+ */
 
 #include "kxtj3_i2c_rp2040.h"
 #include "kxtj3_debug.h"

@@ -1,3 +1,7 @@
+/*! \file
+ * \brief Code for validating register read and write addresses
+ */
+
 #include "kxtj3_registers.h"
 
 uint8_t KXJT3_VALID_READ_ADDRESSES[] = {
@@ -22,7 +26,7 @@ uint8_t KXJT3_VALID_READ_ADDRESSES[] = {
         KXTJ3_REG_NA_COUNTER,
         KXTJ3_REG_WAKEUP_THRESHOLD_H,
         KXTJ3_REG_WAKEUP_THRESHOLD_L
-};
+};//!< Array of valid read register addresses
 
 uint8_t KXJT3_VALID_WRITE_ADDRESSES[] = {
         KXTJ3_REG_CTRL_REG1,
@@ -35,8 +39,7 @@ uint8_t KXJT3_VALID_WRITE_ADDRESSES[] = {
         KXTJ3_REG_SELF_TEST,
         KXTJ3_REG_WAKEUP_THRESHOLD_H,
         KXTJ3_REG_WAKEUP_THRESHOLD_L,
-};
-
+};//!< Array of valid write register addresses
 
 bool kxtj3_valid_read_address(uint8_t address){
 	bool register_found = false;
@@ -49,6 +52,7 @@ bool kxtj3_valid_read_address(uint8_t address){
 
 	return register_found;
 }
+
 
 bool kxtj3_valid_write_address(uint8_t address){
 	bool register_found = false;

@@ -1,3 +1,7 @@
+/*! \file
+ * \brief Contains information on KXTJ3 Register location and bit positions and functions to validate read and write addresses against datasheet limitations
+ */
+
 #ifndef KXTJ3_1057_KXTJ3_REGISTERS_H
 #define KXTJ3_1057_KXTJ3_REGISTERS_H
 
@@ -67,7 +71,23 @@
 #define KXTJ3_DATA_CTRL_REG_BIT_OSAD 0
 
 
+/*! Validates an I2C address against the allowed read registers in the KXTJ3 Datasheet
+ *
+ *
+ * 
+ * \param address i2c register address to validate
+ * \returns bool representing if reads are allowed or not
+ * \see KXJT3_VALID_READ_ADDRESSES[]
+ */
 bool kxtj3_valid_read_address(uint8_t address);
-bool kxtj3_valid_write_address(uint8_t address);
 
+/*! Validates an I2C address against the allowed write registers in the KXTJ3 Datasheet
+ *  
+ *   
+ *     
+ *  \param address i2c register address to validate
+ *  \returns bool representing if writes are allowed or not
+ *  \see KXJT3_VALID_WRITE_ADDRESSES[]
+ */
+bool kxtj3_valid_write_address(uint8_t address);
 #endif

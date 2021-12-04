@@ -1,3 +1,7 @@
+/*! \file
+ * \brief Code for primary kxtj3 library
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <inttypes.h>
