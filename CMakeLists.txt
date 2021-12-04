@@ -28,6 +28,7 @@ if (PICO_SDK_PATH)
 
 	return()
 elseif(BUILD_DOC)
+	project(kxtj3 C ASM)
 	# check if Doxygen is installed
 	find_package(Doxygen)
 	if (DOXYGEN_FOUND)
