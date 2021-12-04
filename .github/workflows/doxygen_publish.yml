@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Configure CMake
-        run: cmake -B ${{github.workspace}}/examples/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_DOC=ON
+        run: cmake -B ${{github.workspace}}/build -DBUILD_DOC=ON
       - name: Build doxygen docs
-        run: cmake --build ${{github.workspace}}/examples/build --config ${{env.BUILD_TYPE}}
+        run: cmake --build ${{github.workspace}}/build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
