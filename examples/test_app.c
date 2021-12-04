@@ -42,8 +42,33 @@ int main(){
 	sleep_ms(100);
 	kxtj3_i2c_init_local();
 
-	rxbuf = (uint8_t*) malloc(I2C_BUF_SIZE*sizeof(uint8_t));
-	txbuf = (uint8_t*) malloc(I2C_BUF_SIZE*sizeof(uint8_t));
+/*
+	while(true){
+		_DBG("%d", kxtj3_set_i2c_target_address(0xc));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_set_srst_mode(true));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_send_startup_command());
+		_DBG("%d", kxtj3_set_i2c_target_address(0xd));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_set_srst_mode(true));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_send_startup_command());
+		_DBG("%d", kxtj3_set_i2c_target_address(0xe));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_set_srst_mode(true));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_send_startup_command());
+		_DBG("%d", kxtj3_set_i2c_target_address(0xf));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_set_srst_mode(true));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_send_startup_command());
+		_DBG("%d", kxtj3_set_i2c_target_address(0xe));
+		sleep_ms(100);
+		_DBG("%d", kxtj3_send_startup_command());
+	}
+	*/
 
 
 	if(kxtj3_send_startup_command() < 1)
@@ -79,8 +104,8 @@ int main(){
 		sleep_ms(100);
 	}
 	free(acceleration);
-	free(rxbuf);
-	free(txbuf);
+	free(kxtj3_i2c_get_rxbuf_ptr());
+	free(kxtj3_i2c_get_txbuf_ptr());
 
 	return 0;
 }

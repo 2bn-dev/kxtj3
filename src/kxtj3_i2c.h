@@ -12,8 +12,6 @@
 
 
 #define I2C_BUF_SIZE 8
-uint8_t* rxbuf; //!< I2C receive byte buffer
-uint8_t* txbuf; //!< I2C transmit byte buffer
 
 enum I2C_STATUS_CODE {
         I2C_SUCCESS                     = 0,
@@ -53,5 +51,15 @@ bool kxtj3_get_bit(uint8_t const value, uint8_t const bit_number);
  * \returns uint8_t modified byte value
  */
 uint8_t kxtj3_flip_bit(uint8_t const value, uint8_t const bit_number);
+
+/*! Internal function used to malloc and get the txbuf ptr
+ * \ returns uint8_t pointer to txbuf
+ */
+uint8_t* kxtj3_i2c_get_txbuf_ptr();
+
+/*! Internal function used to malloc and get the rxbuf ptr
+ * \returns uint8_t pointer to rxbuf
+ */
+uint8_t* kxtj3_i2c_get_rxbuf_ptr();
 
 #endif

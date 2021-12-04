@@ -25,12 +25,12 @@ int kxtj3_get_xyz(kxtj3_xyz_t *acceleration, kxtj3_bit_depth_t bit_depth){
         if (ret < 1)
                 return ret;
 	
-	uint8_t x_l = rxbuf[0];
-	uint8_t x_h = rxbuf[1];
-	uint8_t y_l = rxbuf[2];
-	uint8_t y_h = rxbuf[3];
-	uint8_t z_l = rxbuf[4];
-	uint8_t z_h = rxbuf[5];
+	uint8_t x_l = kxtj3_i2c_get_rxbuf_ptr()[0];
+	uint8_t x_h = kxtj3_i2c_get_rxbuf_ptr()[1];
+	uint8_t y_l = kxtj3_i2c_get_rxbuf_ptr()[2];
+	uint8_t y_h = kxtj3_i2c_get_rxbuf_ptr()[3];
+	uint8_t z_l = kxtj3_i2c_get_rxbuf_ptr()[4];
+	uint8_t z_h = kxtj3_i2c_get_rxbuf_ptr()[5];
 
 	
 	_DBG("x_l: 0x%02x x_h: 0x%02x y_l: 0x%02x y_h: 0x%02x z_l: 0x%02x z_h: 0x%02x", x_l, x_h, y_l, y_h, z_l, z_h);
@@ -141,7 +141,7 @@ int kxtj3_set_acceleration_range(kxtj3_range_t range){
 		return value;
 
 	value |= (range << KXTJ3_CTRL_REG1_BIT_EN16G);
-	txbuf[0] = value;
+	kxtj3_i2c_get_txbuf_ptr()[0] = value;
 
 	int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_CTRL_REG1, length);
         if(ret < 1)
@@ -205,7 +205,7 @@ int kxtj3_set_wake_up_output_data_rate(kxtj3_wu_odr_t odr){
         if(value < 0) return value;
 
         value |= (odr);
-        txbuf[0] = value;
+        kxtj3_i2c_get_txbuf_ptr()[0] = value;
 
         int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_CTRL_REG2, length);
         if(ret < 1)
@@ -339,7 +339,7 @@ int kxtj3_set_output_data_rate(kxtj3_odr_t odr){
         if(value < 0) return value;
 
         value |= (odr);
-        txbuf[0] = value;
+        kxtj3_i2c_get_txbuf_ptr()[0] = value;
 
         int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_DATA_CTRL_REG, length);
         if(ret < 1)
@@ -361,7 +361,7 @@ int kxtj3_set_wake_up_counter(uint8_t value){
 		return KXTJ3_INVALID_SET_VALUE;
 	uint8_t length = 1;
 
-	txbuf[0] = value;
+	kxtj3_i2c_get_txbuf_ptr()[0] = value;
 	int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_WAKEUP_COUNTER, length);
 	if(ret < 1)
 		_DBG("WRITE ERROR %d", ret);
@@ -380,7 +380,7 @@ int kxtj3_set_non_activity_counter(uint8_t value){
                 return KXTJ3_INVALID_SET_VALUE;
 	uint8_t length = 1;
 
-        txbuf[0] = value;
+        kxtj3_i2c_get_txbuf_ptr()[0] = value;
         int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_NA_COUNTER, length);
         if(ret < 1)
                 _DBG("WRITE ERROR %d", ret);
@@ -400,9 +400,9 @@ int kxtj3_set_self_test_mode(bool mode){
 
 	uint8_t length = 1;
 	if(mode)
-	        txbuf[0] = KXTJ3_SELF_TEST_ON_MAGIC;
+	        kxtj3_i2c_get_txbuf_ptr()[0] = KXTJ3_SELF_TEST_ON_MAGIC;
 	else
-		txbuf[0] = KXTJ3_SELF_TEST_OFF_MAGIC;
+		kxtj3_i2c_get_txbuf_ptr()[0] = KXTJ3_SELF_TEST_OFF_MAGIC;
 	
 
 	int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_NA_COUNTER, length);
@@ -426,8 +426,8 @@ uint16_t kxtj3_get_wake_up_threshold(){
 int kxtj3_set_wake_up_threshold(uint16_t value){
 	uint8_t length = 2;
 
-	txbuf[0] = ((value & 0xff0) >> 4);
-	txbuf[1] = ((value & 0x00f) << 4);
+	kxtj3_i2c_get_txbuf_ptr()[0] = ((value & 0xff0) >> 4);
+	kxtj3_i2c_get_txbuf_ptr()[1] = ((value & 0x00f) << 4);
 
 	int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_NA_COUNTER, length);
 	if(ret < 1)
@@ -441,7 +441,7 @@ int kxtj3_send_startup_command(){
 	//https://kionixfs.azureedge.net/en/document/TN017-Power-On-Procedure.pdf 0x00 should written to 0x7f during startup for $reasons?
 	
 	uint8_t length = 0;
-	txbuf[0] = 0x00;
+	kxtj3_i2c_get_txbuf_ptr()[0] = 0x00;
 	int ret = kxtj3_i2c_write_register_blocking_uint8(kxtj3_get_i2c_target_address(), KXTJ3_REG_NA_COUNTER, length);
         if(ret < 1)
 		_DBG("WRITE ERROR %d", ret);
