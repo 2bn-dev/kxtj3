@@ -1,0 +1,9 @@
+name: Build and publish Doxygen docs
+  release:
+    types: [published]
+  jobs: 
+    build-docs:
+      steps:
+        - uses: lukka/get-cmake@latest
+        - uses: actions/checkout@v2
+        - uses: lukka/run-cmake@v10
