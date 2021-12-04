@@ -1,0 +1,196 @@
+\hypertarget{kxtj3__i2c_8c}{}\doxysection{/home/runner/work/kxtj3/kxtj3/src/kxtj3\+\_\+i2c.c File Reference}
+\label{kxtj3__i2c_8c}\index{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c.c@{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c.c}}
+
+
+Contains non-\/hardware specific I2C code.  
+
+
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+registers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+debug.\+h\char`\"{}}\newline
+Include dependency graph for kxtj3\+\_\+i2c.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{kxtj3__i2c_8c_af4d4e5ceb3562f0772b6abd2075a4a5a}{kxtj3\+\_\+get\+\_\+bit}} (uint8\+\_\+t const value, uint8\+\_\+t const bit\+\_\+number)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__i2c_8c_a208a73d1f2cb8ab778b4315f624640de}{kxtj3\+\_\+flip\+\_\+bit}} (uint8\+\_\+t const value, uint8\+\_\+t const bit\+\_\+number)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}{kxtj3\+\_\+get\+\_\+i2c\+\_\+target\+\_\+address}} ()
+\item 
+int \mbox{\hyperlink{kxtj3__i2c_8c_aa5909f802888cc2b3d0262b2a0f93699}{kxtj3\+\_\+set\+\_\+i2c\+\_\+target\+\_\+address}} (uint8\+\_\+t target\+\_\+address)
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\+\_\+i2c\+\_\+get\+\_\+rxbuf\+\_\+ptr}} ()
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\+\_\+i2c\+\_\+get\+\_\+txbuf\+\_\+ptr}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}{rxbuf}} = 0
+\begin{DoxyCompactList}\small\item\em I2C receive byte buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}} = 0
+\begin{DoxyCompactList}\small\item\em I2C transmit byte buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}{kxtj3\+\_\+i2c\+\_\+target\+\_\+address}} = \mbox{\hyperlink{kxtj3__i2c_8h_aad72c5621f84189f4a8e27d0b67da6f6}{K\+X\+T\+J3\+\_\+\+I2\+C\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains non-\/hardware specific I2C code. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8c_a208a73d1f2cb8ab778b4315f624640de}\label{kxtj3__i2c_8c_a208a73d1f2cb8ab778b4315f624640de}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_flip\_bit@{kxtj3\_flip\_bit}}
+\index{kxtj3\_flip\_bit@{kxtj3\_flip\_bit}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_flip\_bit()}{kxtj3\_flip\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t kxtj3\+\_\+flip\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{value,  }\item[{uint8\+\_\+t const}]{bit\+\_\+number }\end{DoxyParamCaption})}
+
+Convenience function for flipping a single bit in a byte 
+\begin{DoxyParams}{Parameters}
+{\em value} & Byte value to modify \\
+\hline
+{\em bit\+\_\+number} & bit position to flip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t modified byte value 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                                      \{ }
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} value \string^ (1 << bit\_number);}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8c_af4d4e5ceb3562f0772b6abd2075a4a5a}\label{kxtj3__i2c_8c_af4d4e5ceb3562f0772b6abd2075a4a5a}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_get\_bit@{kxtj3\_get\_bit}}
+\index{kxtj3\_get\_bit@{kxtj3\_get\_bit}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_get\_bit()}{kxtj3\_get\_bit()}}
+{\footnotesize\ttfamily bool kxtj3\+\_\+get\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{value,  }\item[{uint8\+\_\+t const}]{bit\+\_\+number }\end{DoxyParamCaption})}
+
+Convience function for getting a single bit from a byte 
+\begin{DoxyParams}{Parameters}
+{\em value} & Byte value to access \\
+\hline
+{\em bit\+\_\+number} & Bit position to return (7-\/0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 0 or 1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                                  \{ }
+\DoxyCodeLine{17         \textcolor{keywordflow}{return} (value\&(1<<bit\_number)) >> bit\_number;}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}\label{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_get\_i2c\_target\_address@{kxtj3\_get\_i2c\_target\_address}}
+\index{kxtj3\_get\_i2c\_target\_address@{kxtj3\_get\_i2c\_target\_address}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_get\_i2c\_target\_address()}{kxtj3\_get\_i2c\_target\_address()}}
+{\footnotesize\ttfamily uint8\+\_\+t kxtj3\+\_\+get\+\_\+i2c\+\_\+target\+\_\+address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current configured I2C target address \begin{DoxyReturn}{Returns}
+uint8\+\_\+t Current I2C target address 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                       \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}{kxtj3\_i2c\_target\_address}};}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}\label{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_i2c\_get\_rxbuf\_ptr@{kxtj3\_i2c\_get\_rxbuf\_ptr}}
+\index{kxtj3\_i2c\_get\_rxbuf\_ptr@{kxtj3\_i2c\_get\_rxbuf\_ptr}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_get\_rxbuf\_ptr()}{kxtj3\_i2c\_get\_rxbuf\_ptr()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ kxtj3\+\_\+i2c\+\_\+get\+\_\+rxbuf\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Internal function used to malloc and get the rxbuf ptr \begin{DoxyReturn}{Returns}
+uint8\+\_\+t pointer to rxbuf 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                                   \{}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}{rxbuf}} == 0)\{}
+\DoxyCodeLine{39             \mbox{\hyperlink{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}{rxbuf}} = (uint8\_t*) malloc(\mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}}*\textcolor{keyword}{sizeof}(uint8\_t));}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}};}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}\label{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_i2c\_get\_txbuf\_ptr@{kxtj3\_i2c\_get\_txbuf\_ptr}}
+\index{kxtj3\_i2c\_get\_txbuf\_ptr@{kxtj3\_i2c\_get\_txbuf\_ptr}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_get\_txbuf\_ptr()}{kxtj3\_i2c\_get\_txbuf\_ptr()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ kxtj3\+\_\+i2c\+\_\+get\+\_\+txbuf\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Internal function used to malloc and get the txbuf ptr \textbackslash{} returns uint8\+\_\+t pointer to txbuf 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                   \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}} == 0)\{}
+\DoxyCodeLine{45             \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}} = (uint8\_t*) malloc(\mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}}*\textcolor{keyword}{sizeof}(uint8\_t));}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}};}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8c_aa5909f802888cc2b3d0262b2a0f93699}\label{kxtj3__i2c_8c_aa5909f802888cc2b3d0262b2a0f93699}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_set\_i2c\_target\_address@{kxtj3\_set\_i2c\_target\_address}}
+\index{kxtj3\_set\_i2c\_target\_address@{kxtj3\_set\_i2c\_target\_address}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_set\_i2c\_target\_address()}{kxtj3\_set\_i2c\_target\_address()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+set\+\_\+i2c\+\_\+target\+\_\+address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{target\+\_\+address }\end{DoxyParamCaption})}
+
+Set current configured I2C target address 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+address} & Target I2C address (Per datasheet 0x0c, 0x0d, 0x0e, 0x0f are valid values, but this is not enforced) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status code I2\+C\+\_\+\+S\+U\+C\+C\+E\+SS or I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+A\+D\+D\+R\+E\+SS (for reserved I2C addresses) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                         \{}
+\DoxyCodeLine{29     \textcolor{comment}{//Reserved I2C addresses}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if}((target\_address\&0x78) == 0 || (target\_address \& 0x78) == 0x78)}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2C\_INVALID\_TARGET\_ADDRESS}};}
+\DoxyCodeLine{32     \mbox{\hyperlink{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}{kxtj3\_i2c\_target\_address}} = target\_address;}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}{I2C\_SUCCESS}};}
+\DoxyCodeLine{35 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}\label{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!kxtj3\_i2c\_target\_address@{kxtj3\_i2c\_target\_address}}
+\index{kxtj3\_i2c\_target\_address@{kxtj3\_i2c\_target\_address}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_target\_address}{kxtj3\_i2c\_target\_address}}
+{\footnotesize\ttfamily uint8\+\_\+t kxtj3\+\_\+i2c\+\_\+target\+\_\+address = \mbox{\hyperlink{kxtj3__i2c_8h_aad72c5621f84189f4a8e27d0b67da6f6}{K\+X\+T\+J3\+\_\+\+I2\+C\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+D\+D\+R\+E\+SS}}}
+
+\mbox{\Hypertarget{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}\label{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!rxbuf@{rxbuf}}
+\index{rxbuf@{rxbuf}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{rxbuf}{rxbuf}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ rxbuf = 0}
+
+
+
+I2C receive byte buffer. 
+
+\mbox{\Hypertarget{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}\label{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}} 
+\index{kxtj3\_i2c.c@{kxtj3\_i2c.c}!txbuf@{txbuf}}
+\index{txbuf@{txbuf}!kxtj3\_i2c.c@{kxtj3\_i2c.c}}
+\doxysubsubsection{\texorpdfstring{txbuf}{txbuf}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ txbuf = 0}
+
+
+
+I2C transmit byte buffer. 
+

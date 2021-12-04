@@ -1,0 +1,267 @@
+\hypertarget{kxtj3__i2c_8h}{}\doxysection{/home/runner/work/kxtj3/kxtj3/src/kxtj3\+\_\+i2c.h File Reference}
+\label{kxtj3__i2c_8h}\index{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c.h@{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c.h}}
+
+
+Contains non-\/hardware specific I2C headers.  
+
+
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for kxtj3\+\_\+i2c.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{kxtj3__i2c_8h_aad72c5621f84189f4a8e27d0b67da6f6}{K\+X\+T\+J3\+\_\+\+I2\+C\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+D\+D\+R\+E\+SS}}~0x0E
+\item 
+\#define \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2\+C\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}}~8
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+C\+O\+DE}} \mbox{\hyperlink{kxtj3__i2c_8h_a6bb58950846dc5ee82750b3a2c26f2b3}{i2c\+\_\+status\+\_\+code\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+C\+O\+DE}} \{ \newline
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}{I2\+C\+\_\+\+S\+U\+C\+C\+E\+SS}} = 0, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+A\+D\+D\+R\+E\+SS}} = -\/1, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}{I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS}} = -\/2, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}{I2\+C\+\_\+\+R\+X\+B\+U\+F\+\_\+\+T\+O\+O\+\_\+\+S\+M\+A\+LL}} = -\/3, 
+\newline
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}{I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+T\+I\+M\+E\+O\+UT}} = -\/4, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcaa7472b06d736930f0b6b60150cf6652c}{I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+T\+I\+M\+E\+O\+UT}} = -\/5, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+D\+I\+D\+N\+T\+\_\+\+A\+CK}} = -\/6, 
+\mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}{I2\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+N\+K\+N\+O\+WN}} = -\/7
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__i2c_8h_a8b4baeaeacd25a0e1af30a2640265ffe}{kxtj3\+\_\+get\+\_\+i2c\+\_\+target\+\_\+address}} ()
+\item 
+int \mbox{\hyperlink{kxtj3__i2c_8h_ae4113c34ed29a06b6044a9c40eaf4bd5}{kxtj3\+\_\+set\+\_\+i2c\+\_\+target\+\_\+address}} (uint8\+\_\+t const target\+\_\+address)
+\item 
+bool \mbox{\hyperlink{kxtj3__i2c_8h_af4d4e5ceb3562f0772b6abd2075a4a5a}{kxtj3\+\_\+get\+\_\+bit}} (uint8\+\_\+t const value, uint8\+\_\+t const bit\+\_\+number)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__i2c_8h_a208a73d1f2cb8ab778b4315f624640de}{kxtj3\+\_\+flip\+\_\+bit}} (uint8\+\_\+t const value, uint8\+\_\+t const bit\+\_\+number)
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8h_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\+\_\+i2c\+\_\+get\+\_\+txbuf\+\_\+ptr}} ()
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{kxtj3__i2c_8h_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\+\_\+i2c\+\_\+get\+\_\+rxbuf\+\_\+ptr}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains non-\/hardware specific I2C headers. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}\label{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_BUF\_SIZE@{I2C\_BUF\_SIZE}}
+\index{I2C\_BUF\_SIZE@{I2C\_BUF\_SIZE}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_BUF\_SIZE}{I2C\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE~8}
+
+\mbox{\Hypertarget{kxtj3__i2c_8h_aad72c5621f84189f4a8e27d0b67da6f6}\label{kxtj3__i2c_8h_aad72c5621f84189f4a8e27d0b67da6f6}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!KXTJ3\_I2C\_DEFAULT\_ADDRESS@{KXTJ3\_I2C\_DEFAULT\_ADDRESS}}
+\index{KXTJ3\_I2C\_DEFAULT\_ADDRESS@{KXTJ3\_I2C\_DEFAULT\_ADDRESS}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{KXTJ3\_I2C\_DEFAULT\_ADDRESS}{KXTJ3\_I2C\_DEFAULT\_ADDRESS}}
+{\footnotesize\ttfamily \#define K\+X\+T\+J3\+\_\+\+I2\+C\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+D\+D\+R\+E\+SS~0x0E}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8h_a6bb58950846dc5ee82750b3a2c26f2b3}\label{kxtj3__i2c_8h_a6bb58950846dc5ee82750b3a2c26f2b3}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!i2c\_status\_code\_t@{i2c\_status\_code\_t}}
+\index{i2c\_status\_code\_t@{i2c\_status\_code\_t}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_status\_code\_t}{i2c\_status\_code\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+C\+O\+DE}} \mbox{\hyperlink{kxtj3__i2c_8h_a6bb58950846dc5ee82750b3a2c26f2b3}{i2c\+\_\+status\+\_\+code\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_STATUS\_CODE@{I2C\_STATUS\_CODE}}
+\index{I2C\_STATUS\_CODE@{I2C\_STATUS\_CODE}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_STATUS\_CODE}{I2C\_STATUS\_CODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bc}{I2\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+C\+O\+DE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SUCCESS@{I2C\_SUCCESS}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_SUCCESS@{I2C\_SUCCESS}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}} 
+I2\+C\+\_\+\+S\+U\+C\+C\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_INVALID\_TARGET\_ADDRESS@{I2C\_INVALID\_TARGET\_ADDRESS}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_INVALID\_TARGET\_ADDRESS@{I2C\_INVALID\_TARGET\_ADDRESS}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}} 
+I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+A\+D\+D\+R\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_INVALID\_REGISTER\_ADDRESS@{I2C\_INVALID\_REGISTER\_ADDRESS}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_INVALID\_REGISTER\_ADDRESS@{I2C\_INVALID\_REGISTER\_ADDRESS}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}} 
+I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+\+A\+D\+D\+R\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RXBUF\_TOO\_SMALL@{I2C\_RXBUF\_TOO\_SMALL}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_RXBUF\_TOO\_SMALL@{I2C\_RXBUF\_TOO\_SMALL}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}} 
+I2\+C\+\_\+\+R\+X\+B\+U\+F\+\_\+\+T\+O\+O\+\_\+\+S\+M\+A\+LL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_WRITE\_TIMEOUT@{I2C\_WRITE\_TIMEOUT}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_WRITE\_TIMEOUT@{I2C\_WRITE\_TIMEOUT}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}} 
+I2\+C\+\_\+\+W\+R\+I\+T\+E\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_READ\_TIMEOUT@{I2C\_READ\_TIMEOUT}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_READ\_TIMEOUT@{I2C\_READ\_TIMEOUT}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcaa7472b06d736930f0b6b60150cf6652c}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcaa7472b06d736930f0b6b60150cf6652c}} 
+I2\+C\+\_\+\+R\+E\+A\+D\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_ADDR\_DIDNT\_ACK@{I2C\_ADDR\_DIDNT\_ACK}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_ADDR\_DIDNT\_ACK@{I2C\_ADDR\_DIDNT\_ACK}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}} 
+I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+D\+I\+D\+N\+T\+\_\+\+A\+CK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_ERROR\_UNKNOWN@{I2C\_ERROR\_UNKNOWN}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!I2C\_ERROR\_UNKNOWN@{I2C\_ERROR\_UNKNOWN}}}\mbox{\Hypertarget{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}\label{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}} 
+I2\+C\+\_\+\+E\+R\+R\+O\+R\+\_\+\+U\+N\+K\+N\+O\+WN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                      \{}
+\DoxyCodeLine{17         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}{I2C\_SUCCESS}}                     = 0,}
+\DoxyCodeLine{18         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2C\_INVALID\_TARGET\_ADDRESS}}      = -\/1,}
+\DoxyCodeLine{19         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}{I2C\_INVALID\_REGISTER\_ADDRESS}}    = -\/2,}
+\DoxyCodeLine{20         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}{I2C\_RXBUF\_TOO\_SMALL}}             = -\/3,}
+\DoxyCodeLine{21         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}{I2C\_WRITE\_TIMEOUT}}               = -\/4,}
+\DoxyCodeLine{22         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcaa7472b06d736930f0b6b60150cf6652c}{I2C\_READ\_TIMEOUT}}                = -\/5,}
+\DoxyCodeLine{23         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}{I2C\_ADDR\_DIDNT\_ACK}}              = -\/6,}
+\DoxyCodeLine{24         \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}{I2C\_ERROR\_UNKNOWN}}               = -\/7}
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kxtj3__i2c_8h_a208a73d1f2cb8ab778b4315f624640de}\label{kxtj3__i2c_8h_a208a73d1f2cb8ab778b4315f624640de}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_flip\_bit@{kxtj3\_flip\_bit}}
+\index{kxtj3\_flip\_bit@{kxtj3\_flip\_bit}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_flip\_bit()}{kxtj3\_flip\_bit()}}
+{\footnotesize\ttfamily uint8\+\_\+t kxtj3\+\_\+flip\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{value,  }\item[{uint8\+\_\+t const}]{bit\+\_\+number }\end{DoxyParamCaption})}
+
+Convenience function for flipping a single bit in a byte 
+\begin{DoxyParams}{Parameters}
+{\em value} & Byte value to modify \\
+\hline
+{\em bit\+\_\+number} & bit position to flip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t modified byte value 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                                      \{ }
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} value \string^ (1 << bit\_number);}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8h_af4d4e5ceb3562f0772b6abd2075a4a5a}\label{kxtj3__i2c_8h_af4d4e5ceb3562f0772b6abd2075a4a5a}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_get\_bit@{kxtj3\_get\_bit}}
+\index{kxtj3\_get\_bit@{kxtj3\_get\_bit}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_get\_bit()}{kxtj3\_get\_bit()}}
+{\footnotesize\ttfamily bool kxtj3\+\_\+get\+\_\+bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{value,  }\item[{uint8\+\_\+t const}]{bit\+\_\+number }\end{DoxyParamCaption})}
+
+Convience function for getting a single bit from a byte 
+\begin{DoxyParams}{Parameters}
+{\em value} & Byte value to access \\
+\hline
+{\em bit\+\_\+number} & Bit position to return (7-\/0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 0 or 1 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                                  \{ }
+\DoxyCodeLine{17         \textcolor{keywordflow}{return} (value\&(1<<bit\_number)) >> bit\_number;}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8h_a8b4baeaeacd25a0e1af30a2640265ffe}\label{kxtj3__i2c_8h_a8b4baeaeacd25a0e1af30a2640265ffe}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_get\_i2c\_target\_address@{kxtj3\_get\_i2c\_target\_address}}
+\index{kxtj3\_get\_i2c\_target\_address@{kxtj3\_get\_i2c\_target\_address}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_get\_i2c\_target\_address()}{kxtj3\_get\_i2c\_target\_address()}}
+{\footnotesize\ttfamily uint8\+\_\+t kxtj3\+\_\+get\+\_\+i2c\+\_\+target\+\_\+address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current configured I2C target address \begin{DoxyReturn}{Returns}
+uint8\+\_\+t Current I2C target address 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                       \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}{kxtj3\_i2c\_target\_address}};}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8h_ac5aad128dc3fe57e5d46af36e4c19566}\label{kxtj3__i2c_8h_ac5aad128dc3fe57e5d46af36e4c19566}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_i2c\_get\_rxbuf\_ptr@{kxtj3\_i2c\_get\_rxbuf\_ptr}}
+\index{kxtj3\_i2c\_get\_rxbuf\_ptr@{kxtj3\_i2c\_get\_rxbuf\_ptr}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_get\_rxbuf\_ptr()}{kxtj3\_i2c\_get\_rxbuf\_ptr()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ kxtj3\+\_\+i2c\+\_\+get\+\_\+rxbuf\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Internal function used to malloc and get the rxbuf ptr \begin{DoxyReturn}{Returns}
+uint8\+\_\+t pointer to rxbuf 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                                   \{}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}{rxbuf}} == 0)\{}
+\DoxyCodeLine{39             \mbox{\hyperlink{kxtj3__i2c_8c_a510569a760e0d7716283885ec4f69819}{rxbuf}} = (uint8\_t*) malloc(\mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}}*\textcolor{keyword}{sizeof}(uint8\_t));}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}};}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8h_a9855ed8651718ac3e74c70bdd0eb92e5}\label{kxtj3__i2c_8h_a9855ed8651718ac3e74c70bdd0eb92e5}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_i2c\_get\_txbuf\_ptr@{kxtj3\_i2c\_get\_txbuf\_ptr}}
+\index{kxtj3\_i2c\_get\_txbuf\_ptr@{kxtj3\_i2c\_get\_txbuf\_ptr}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_get\_txbuf\_ptr()}{kxtj3\_i2c\_get\_txbuf\_ptr()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ kxtj3\+\_\+i2c\+\_\+get\+\_\+txbuf\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Internal function used to malloc and get the txbuf ptr \textbackslash{} returns uint8\+\_\+t pointer to txbuf 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                   \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}} == 0)\{}
+\DoxyCodeLine{45             \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}} = (uint8\_t*) malloc(\mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}}*\textcolor{keyword}{sizeof}(uint8\_t));}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8c_ac9e3b089b1d0923accccfe6cf74aabb1}{txbuf}};}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c_8h_ae4113c34ed29a06b6044a9c40eaf4bd5}\label{kxtj3__i2c_8h_ae4113c34ed29a06b6044a9c40eaf4bd5}} 
+\index{kxtj3\_i2c.h@{kxtj3\_i2c.h}!kxtj3\_set\_i2c\_target\_address@{kxtj3\_set\_i2c\_target\_address}}
+\index{kxtj3\_set\_i2c\_target\_address@{kxtj3\_set\_i2c\_target\_address}!kxtj3\_i2c.h@{kxtj3\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_set\_i2c\_target\_address()}{kxtj3\_set\_i2c\_target\_address()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+set\+\_\+i2c\+\_\+target\+\_\+address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{target\+\_\+address }\end{DoxyParamCaption})}
+
+Set current configured I2C target address 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+address} & Target I2C address (Per datasheet 0x0c, 0x0d, 0x0e, 0x0f are valid values, but this is not enforced) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status code I2\+C\+\_\+\+S\+U\+C\+C\+E\+SS or I2\+C\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+A\+D\+D\+R\+E\+SS (for reserved I2C addresses) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                         \{}
+\DoxyCodeLine{29     \textcolor{comment}{//Reserved I2C addresses}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{if}((target\_address\&0x78) == 0 || (target\_address \& 0x78) == 0x78)}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2C\_INVALID\_TARGET\_ADDRESS}};}
+\DoxyCodeLine{32     \mbox{\hyperlink{kxtj3__i2c_8c_aeae43471fc98e48f82b2b8f6cf8b2470}{kxtj3\_i2c\_target\_address}} = target\_address;}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca955ff83770f8200a0d50d7d69f8b2d06}{I2C\_SUCCESS}};}
+\DoxyCodeLine{35 \}}
+
+\end{DoxyCode}

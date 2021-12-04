@@ -1,0 +1,38 @@
+digraph "/home/runner/work/kxtj3/kxtj3/src/kxtj3_i2c_rp2040.c"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/runner/work/kxtj3\l/kxtj3/src/kxtj3_i2c_rp2040.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Code for RP2040 specific I2C implementation."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="kxtj3_i2c_rp2040.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$kxtj3__i2c__rp2040_8h.html",tooltip="RP2040 specific I2C implementations for reading/writing registers over I2C."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="stdlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="stdio.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="inttypes.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="string.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="pico/stdio.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="pico/stdlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="pico/time.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="hardware/i2c.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="kxtj3_registers.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$kxtj3__registers_8h.html",tooltip="Contains information on KXTJ3 Register location and bit positions and functions to validate read and ..."];
+  Node11 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="stdbool.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node11 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="kxtj3_i2c.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$kxtj3__i2c_8h.html",tooltip="Contains non-hardware specific I2C headers."];
+  Node13 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="kxtj3_debug.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$kxtj3__debug_8h.html",tooltip="Contains convenience debug output function that is used when compiled in debug mode can be overridden..."];
+  Node14 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+}

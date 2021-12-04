@@ -1,0 +1,166 @@
+\hypertarget{kxtj3__registers_8c}{}\doxysection{/home/runner/work/kxtj3/kxtj3/src/kxtj3\+\_\+registers.c File Reference}
+\label{kxtj3__registers_8c}\index{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_registers.c@{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_registers.c}}
+
+
+Code for validating register read and write addresses.  
+
+
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+registers.\+h\char`\"{}}\newline
+Include dependency graph for kxtj3\+\_\+registers.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{kxtj3__registers_8c_a58f8e6fa0d3313f1cf1d6148479c0a43}{kxtj3\+\_\+valid\+\_\+read\+\_\+address}} (uint8\+\_\+t address)
+\item 
+bool \mbox{\hyperlink{kxtj3__registers_8c_a7c35a91a2a5a8c2a5adfa307e9158f63}{kxtj3\+\_\+valid\+\_\+write\+\_\+address}} (uint8\+\_\+t address)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of valid read register addresses. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{kxtj3__registers_8c_ae59a685886e6a4e23bcba1c4d2a000ce}{K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of valid write register addresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Code for validating register read and write addresses. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kxtj3__registers_8c_a58f8e6fa0d3313f1cf1d6148479c0a43}\label{kxtj3__registers_8c_a58f8e6fa0d3313f1cf1d6148479c0a43}} 
+\index{kxtj3\_registers.c@{kxtj3\_registers.c}!kxtj3\_valid\_read\_address@{kxtj3\_valid\_read\_address}}
+\index{kxtj3\_valid\_read\_address@{kxtj3\_valid\_read\_address}!kxtj3\_registers.c@{kxtj3\_registers.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_valid\_read\_address()}{kxtj3\_valid\_read\_address()}}
+{\footnotesize\ttfamily bool kxtj3\+\_\+valid\+\_\+read\+\_\+address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+Validates an I2C address against the allowed read registers in the K\+X\+T\+J3 Datasheet
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & i2c register address to validate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool representing if reads are allowed or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES}}\mbox{[}\mbox{]} 
+\end{DoxySeeAlso}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                               \{}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} register\_found = \textcolor{keyword}{false};}
+\DoxyCodeLine{46         \textcolor{keywordflow}{for}(uint8\_t i = 0; i < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{KXJT3\_VALID\_READ\_ADDRESSES}}); i++)\{}
+\DoxyCodeLine{47                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{KXJT3\_VALID\_READ\_ADDRESSES}}[i] == address)\{}
+\DoxyCodeLine{48                         register\_found = \textcolor{keyword}{true};}
+\DoxyCodeLine{49                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{50                 \}}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} register\_found;}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__registers_8c_a7c35a91a2a5a8c2a5adfa307e9158f63}\label{kxtj3__registers_8c_a7c35a91a2a5a8c2a5adfa307e9158f63}} 
+\index{kxtj3\_registers.c@{kxtj3\_registers.c}!kxtj3\_valid\_write\_address@{kxtj3\_valid\_write\_address}}
+\index{kxtj3\_valid\_write\_address@{kxtj3\_valid\_write\_address}!kxtj3\_registers.c@{kxtj3\_registers.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_valid\_write\_address()}{kxtj3\_valid\_write\_address()}}
+{\footnotesize\ttfamily bool kxtj3\+\_\+valid\+\_\+write\+\_\+address (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+Validates an I2C address against the allowed write registers in the K\+X\+T\+J3 Datasheet
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & i2c register address to validate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool representing if writes are allowed or not 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{kxtj3__registers_8c_ae59a685886e6a4e23bcba1c4d2a000ce}{K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES}}\mbox{[}\mbox{]} 
+\end{DoxySeeAlso}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57                                                \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{bool} register\_found = \textcolor{keyword}{false};}
+\DoxyCodeLine{59         \textcolor{keywordflow}{for}(uint8\_t i = 0; i < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{KXJT3\_VALID\_READ\_ADDRESSES}}); i++)\{}
+\DoxyCodeLine{60                 \textcolor{keywordflow}{if}(\mbox{\hyperlink{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}{KXJT3\_VALID\_READ\_ADDRESSES}}[i] == address)\{}
+\DoxyCodeLine{61                         register\_found = \textcolor{keyword}{true};}
+\DoxyCodeLine{62                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{63                 \}}
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{keywordflow}{return} register\_found;}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}\label{kxtj3__registers_8c_ad091d74f89e42853f0707d04ec7bf0bf}} 
+\index{kxtj3\_registers.c@{kxtj3\_registers.c}!KXJT3\_VALID\_READ\_ADDRESSES@{KXJT3\_VALID\_READ\_ADDRESSES}}
+\index{KXJT3\_VALID\_READ\_ADDRESSES@{KXJT3\_VALID\_READ\_ADDRESSES}!kxtj3\_registers.c@{kxtj3\_registers.c}}
+\doxysubsubsection{\texorpdfstring{KXJT3\_VALID\_READ\_ADDRESSES}{KXJT3\_VALID\_READ\_ADDRESSES}}
+{\footnotesize\ttfamily uint8\+\_\+t K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+R\+E\+A\+D\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a501d3719e27cbfcd7ca2344e4e084a2c}{KXTJ3\_REG\_XOUT\_L}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a00616d29b8ac62742742ae76e4c080ab}{KXTJ3\_REG\_XOUT\_H}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_af03d33e9f625aaf14bd6b7b097369825}{KXTJ3\_REG\_YOUT\_L}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a626b516844c4696f57d309a02f7f9c7e}{KXTJ3\_REG\_YOUT\_H}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a3ab0fb47a438ac48eb862576c8fe6f42}{KXTJ3\_REG\_ZOUT\_L}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a88c367fd0572d84b91dea23b7d193209}{KXTJ3\_REG\_ZOUT\_H}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a901a84dbb0401c264e8127c489ce84be}{KXTJ3\_REG\_DCST\_RESP}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_ad2139d5818e68996b483f2234089c75f}{KXTJ3\_REG\_WHO\_AM\_I}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_ac33326a117aa76f96ff55b72dc8c8e04}{KXTJ3\_REG\_INT\_SOURCE1}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a8c6199db417c273efcfe3764629b9a8a}{KXTJ3\_REG\_INT\_SOURCE2}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a893d67f0e34d2d4ac6efcbc73a0fc83a}{KXTJ3\_REG\_STATUS\_REG}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_aa69b2d2612c4201a6704d0ecd9480f7a}{KXTJ3\_REG\_INT\_REL}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_aaa4f7f772374054f5b9d505fa32849aa}{KXTJ3\_REG\_CTRL\_REG1}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a1abb7bf062dbc1ba16cd2a5d6dba8e56}{KXTJ3\_REG\_CTRL\_REG2}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a167d5d13373f4d27c62ef255dcb048e7}{KXTJ3\_REG\_INT\_CTRL\_REG1}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a00b9bf65556ba0c3242afa4ad5242538}{KXTJ3\_REG\_INT\_CTRL\_REG2}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a4072f8d94a93834ddaa58180d9e5b666}{KXTJ3\_REG\_DATA\_CTRL\_REG}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a89d5d0020f1705914d35b994e911b01f}{KXTJ3\_REG\_WAKEUP\_COUNTER}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_af0af36638b12bfe68aa83ab63650050a}{KXTJ3\_REG\_NA\_COUNTER}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a3ebb536d19e840f8d088cfd050762b7a}{KXTJ3\_REG\_WAKEUP\_THRESHOLD\_H}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_abb27c08d7fe2086aaacfb2d74b9f85ed}{KXTJ3\_REG\_WAKEUP\_THRESHOLD\_L}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Array of valid read register addresses. 
+
+\mbox{\Hypertarget{kxtj3__registers_8c_ae59a685886e6a4e23bcba1c4d2a000ce}\label{kxtj3__registers_8c_ae59a685886e6a4e23bcba1c4d2a000ce}} 
+\index{kxtj3\_registers.c@{kxtj3\_registers.c}!KXJT3\_VALID\_WRITE\_ADDRESSES@{KXJT3\_VALID\_WRITE\_ADDRESSES}}
+\index{KXJT3\_VALID\_WRITE\_ADDRESSES@{KXJT3\_VALID\_WRITE\_ADDRESSES}!kxtj3\_registers.c@{kxtj3\_registers.c}}
+\doxysubsubsection{\texorpdfstring{KXJT3\_VALID\_WRITE\_ADDRESSES}{KXJT3\_VALID\_WRITE\_ADDRESSES}}
+{\footnotesize\ttfamily uint8\+\_\+t K\+X\+J\+T3\+\_\+\+V\+A\+L\+I\+D\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+D\+D\+R\+E\+S\+S\+ES\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_aaa4f7f772374054f5b9d505fa32849aa}{KXTJ3\_REG\_CTRL\_REG1}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a1abb7bf062dbc1ba16cd2a5d6dba8e56}{KXTJ3\_REG\_CTRL\_REG2}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a167d5d13373f4d27c62ef255dcb048e7}{KXTJ3\_REG\_INT\_CTRL\_REG1}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a00b9bf65556ba0c3242afa4ad5242538}{KXTJ3\_REG\_INT\_CTRL\_REG2}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a4072f8d94a93834ddaa58180d9e5b666}{KXTJ3\_REG\_DATA\_CTRL\_REG}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a89d5d0020f1705914d35b994e911b01f}{KXTJ3\_REG\_WAKEUP\_COUNTER}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_af0af36638b12bfe68aa83ab63650050a}{KXTJ3\_REG\_NA\_COUNTER}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_add8ab735371058ac79232bb3879a1216}{KXTJ3\_REG\_SELF\_TEST}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_a3ebb536d19e840f8d088cfd050762b7a}{KXTJ3\_REG\_WAKEUP\_THRESHOLD\_H}},}
+\DoxyCodeLine{        \mbox{\hyperlink{kxtj3__registers_8h_abb27c08d7fe2086aaacfb2d74b9f85ed}{KXTJ3\_REG\_WAKEUP\_THRESHOLD\_L}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Array of valid write register addresses. 
+

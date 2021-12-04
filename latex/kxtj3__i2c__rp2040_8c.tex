@@ -1,0 +1,247 @@
+\hypertarget{kxtj3__i2c__rp2040_8c}{}\doxysection{/home/runner/work/kxtj3/kxtj3/src/kxtj3\+\_\+i2c\+\_\+rp2040.c File Reference}
+\label{kxtj3__i2c__rp2040_8c}\index{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c\_rp2040.c@{/home/runner/work/kxtj3/kxtj3/src/kxtj3\_i2c\_rp2040.c}}
+
+
+Code for R\+P2040 specific I2C implementation.  
+
+
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+i2c\+\_\+rp2040.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}kxtj3\+\_\+debug.\+h\char`\"{}}\newline
+Include dependency graph for kxtj3\+\_\+i2c\+\_\+rp2040.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_adde012edc8e26fbd36f0241fb0aa2c0c}{kxtj3\+\_\+i2c\+\_\+init\+\_\+local}} ()
+\item 
+int \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_aeb07dadf0f5a2485fd36214c26d85dba}{kxtj3\+\_\+i2c\+\_\+read\+\_\+register\+\_\+blocking\+\_\+uint8}} (uint8\+\_\+t const target\+\_\+addr, uint8\+\_\+t const register\+\_\+addr, uint8\+\_\+t length)
+\item 
+int \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_aa515541b6a3045a77ccfbc0206b701ca}{kxtj3\+\_\+i2c\+\_\+return\+\_\+register\+\_\+byte}} (uint8\+\_\+t const register\+\_\+addr)
+\item 
+int \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_a6b712c79c2ee8f15ad4ba15a6b562736}{kxtj3\+\_\+i2c\+\_\+write\+\_\+register\+\_\+blocking\+\_\+uint8}} (uint8\+\_\+t const target\+\_\+addr, uint8\+\_\+t const register\+\_\+addr, uint8\+\_\+t length)
+\item 
+int \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_a34586a4eb36e58e821af38a767e39bef}{kxtj3\+\_\+i2c\+\_\+set\+\_\+register\+\_\+bit\+\_\+mode}} (bool mode, uint8\+\_\+t register\+\_\+address, uint8\+\_\+t bit\+\_\+position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Code for R\+P2040 specific I2C implementation. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kxtj3__i2c__rp2040_8c_adde012edc8e26fbd36f0241fb0aa2c0c}\label{kxtj3__i2c__rp2040_8c_adde012edc8e26fbd36f0241fb0aa2c0c}} 
+\index{kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}!kxtj3\_i2c\_init\_local@{kxtj3\_i2c\_init\_local}}
+\index{kxtj3\_i2c\_init\_local@{kxtj3\_i2c\_init\_local}!kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_init\_local()}{kxtj3\_i2c\_init\_local()}}
+{\footnotesize\ttfamily void kxtj3\+\_\+i2c\+\_\+init\+\_\+local (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize I2C interface and pull ups
+
+Set defines P\+I\+N\+\_\+\+I2\+C\+\_\+\+S\+DA and P\+I\+N\+\_\+\+I2\+C\+\_\+\+S\+CL to override the I2C Pins. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                            \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"i2c\_init()"});}
+\DoxyCodeLine{11     i2c\_init(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a79c7bc0605b3d6aea0efd5cf158ba1a2}{I2C\_INTERFACE}}, \mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a410dc1e7572425a449b5dc0f7ca9f69d}{I2C\_SPEED}});}
+\DoxyCodeLine{12     gpio\_set\_function(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_afd84f048502b749115c9e05262ed6753}{PIN\_I2C\_SDA}}, GPIO\_FUNC\_I2C);}
+\DoxyCodeLine{13     gpio\_set\_function(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a6b5cc0023af0923f5e57d107bdd8f985}{PIN\_I2C\_SCL}}, GPIO\_FUNC\_I2C);}
+\DoxyCodeLine{14     gpio\_pull\_up(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_afd84f048502b749115c9e05262ed6753}{PIN\_I2C\_SDA}});}
+\DoxyCodeLine{15     gpio\_pull\_up(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a6b5cc0023af0923f5e57d107bdd8f985}{PIN\_I2C\_SCL}});}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{//Tell PICOTOOL about I2C pins}}
+\DoxyCodeLine{18     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"i2c\_init() complete"});}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c__rp2040_8c_aeb07dadf0f5a2485fd36214c26d85dba}\label{kxtj3__i2c__rp2040_8c_aeb07dadf0f5a2485fd36214c26d85dba}} 
+\index{kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}!kxtj3\_i2c\_read\_register\_blocking\_uint8@{kxtj3\_i2c\_read\_register\_blocking\_uint8}}
+\index{kxtj3\_i2c\_read\_register\_blocking\_uint8@{kxtj3\_i2c\_read\_register\_blocking\_uint8}!kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_read\_register\_blocking\_uint8()}{kxtj3\_i2c\_read\_register\_blocking\_uint8()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+i2c\+\_\+read\+\_\+register\+\_\+blocking\+\_\+uint8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{target\+\_\+addr,  }\item[{uint8\+\_\+t const}]{register\+\_\+addr,  }\item[{uint8\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+R\+P2040 specific I2C register read (blocking)
+
+This function is used internally to read data from the accelerometer via R\+P2040 I2C hardware interface 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+addr} & I2C address command is directed at \\
+\hline
+{\em register\+\_\+addr} & I2C register address to start reading from \\
+\hline
+{\em length} & of read (M\+AX I2\+C\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+read byte length if successful (value $>$ 0) otherwise status code (value $<$ 0) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                                                                                                   \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"blocking register read target\_addr: 0x\%02x, register\_addr: 0x\%02x, rbxuf size: \%d"}, target\_addr, register\_addr, length);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{if}(length > \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}})}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}{I2C\_RXBUF\_TOO\_SMALL}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{//Reserved I2C addresses}}
+\DoxyCodeLine{28     \textcolor{keywordflow}{if}((target\_addr\&0x78) == 0 || (target\_addr \& 0x78) == 0x78) }
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2C\_INVALID\_TARGET\_ADDRESS}};}
+\DoxyCodeLine{30     }
+\DoxyCodeLine{31     \textcolor{keywordflow}{if}(!\mbox{\hyperlink{kxtj3__registers_8c_a58f8e6fa0d3313f1cf1d6148479c0a43}{kxtj3\_valid\_read\_address}}(register\_addr)) }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}{I2C\_INVALID\_REGISTER\_ADDRESS}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} ret = 0;}
+\DoxyCodeLine{35     ret = i2c\_write\_blocking\_until(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a79c7bc0605b3d6aea0efd5cf158ba1a2}{I2C\_INTERFACE}}, target\_addr, \&register\_addr, \textcolor{keyword}{sizeof}(register\_addr), \textcolor{keyword}{true}, make\_timeout\_time\_ms(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a2d170d4bf8ec07ffb0f602cbb70adf64}{I2C\_WRITE\_TIMEOUT\_MS}}));}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_TIMEOUT) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}{I2C\_WRITE\_TIMEOUT}};}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_GENERIC) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}{I2C\_ADDR\_DIDNT\_ACK}};}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if}(ret < 1) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}{I2C\_ERROR\_UNKNOWN}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     memset(\mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}(), 0x0, \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}});}
+\DoxyCodeLine{41     ret = i2c\_read\_blocking\_until(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a79c7bc0605b3d6aea0efd5cf158ba1a2}{I2C\_INTERFACE}}, target\_addr, \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}(), length, \textcolor{keyword}{false}, make\_timeout\_time\_ms(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_af4fb56616c68132514747adc2632b311}{I2C\_READ\_TIMEOUT\_MS}}));}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_TIMEOUT) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}{I2C\_WRITE\_TIMEOUT}};}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_GENERIC) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}{I2C\_ADDR\_DIDNT\_ACK}};}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if}(ret < 1) \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}{I2C\_ERROR\_UNKNOWN}};}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{46     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"Blocking read result: target\_addr: 0x\%02x, register\_addr: 0x\%02x, rbxuf size: \%d, rxbuf: 0x\%02x\%02x\%02x\%02x\%02x\%02x\%02x\%02x ret: \%d"}, target\_addr, register\_addr, length, \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[1], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[2], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[3], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[4], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[5], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[6], \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[7], ret);}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} ret; \textcolor{comment}{// Number of bytes read}}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c__rp2040_8c_aa515541b6a3045a77ccfbc0206b701ca}\label{kxtj3__i2c__rp2040_8c_aa515541b6a3045a77ccfbc0206b701ca}} 
+\index{kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}!kxtj3\_i2c\_return\_register\_byte@{kxtj3\_i2c\_return\_register\_byte}}
+\index{kxtj3\_i2c\_return\_register\_byte@{kxtj3\_i2c\_return\_register\_byte}!kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_return\_register\_byte()}{kxtj3\_i2c\_return\_register\_byte()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+i2c\+\_\+return\+\_\+register\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{register\+\_\+addr }\end{DoxyParamCaption})}
+
+R\+P2040 specific I2C convenience function that returns a single byte
+
+This function is used internally to read data a single byte at a type via R\+P2040 I2C Hardware interface
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+\_\+addr} & I2C register address to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+requested byte value if successful (value $>$= 0) otherwise status code (value $<$ 0) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                                                                \{}
+\DoxyCodeLine{51     uint8\_t length = 1;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} ret = \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_aeb07dadf0f5a2485fd36214c26d85dba}{kxtj3\_i2c\_read\_register\_blocking\_uint8}}(\mbox{\hyperlink{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}{kxtj3\_get\_i2c\_target\_address}}(), register\_addr, length);}
+\DoxyCodeLine{53     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"single byte read: \%02x, result: \%02x"}, register\_addr, \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0]);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{if}(ret < 1) }
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} result;}
+\DoxyCodeLine{58     result = \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0];}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{60 \}   }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c__rp2040_8c_a34586a4eb36e58e821af38a767e39bef}\label{kxtj3__i2c__rp2040_8c_a34586a4eb36e58e821af38a767e39bef}} 
+\index{kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}!kxtj3\_i2c\_set\_register\_bit\_mode@{kxtj3\_i2c\_set\_register\_bit\_mode}}
+\index{kxtj3\_i2c\_set\_register\_bit\_mode@{kxtj3\_i2c\_set\_register\_bit\_mode}!kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_set\_register\_bit\_mode()}{kxtj3\_i2c\_set\_register\_bit\_mode()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+i2c\+\_\+set\+\_\+register\+\_\+bit\+\_\+mode (\begin{DoxyParamCaption}\item[{bool}]{mode,  }\item[{uint8\+\_\+t}]{register\+\_\+address,  }\item[{uint8\+\_\+t}]{bit\+\_\+position }\end{DoxyParamCaption})}
+
+R\+P2040 specific I2C convenience function that sets a single bit
+
+This function is used internally to set a single bit to a particular value (0 or 1) via R\+P2040 I2C hardware interface. Will check value before writing, if value is already set to mode then function will not bother writing it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & value to set (0 or 1) \\
+\hline
+{\em register\+\_\+address} & I2C register address to write \\
+\hline
+{\em bit\+\_\+position} & position within the byte to modify (7-\/0)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mode if successful (value == 0 or 1) otherwise status code (value $<$ 0) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95                                                                                               \{}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} ret;}
+\DoxyCodeLine{97     uint8\_t length = 1;}
+\DoxyCodeLine{98     }
+\DoxyCodeLine{99     ret = \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_aeb07dadf0f5a2485fd36214c26d85dba}{kxtj3\_i2c\_read\_register\_blocking\_uint8}}(\mbox{\hyperlink{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}{kxtj3\_get\_i2c\_target\_address}}(), register\_address, length);}
+\DoxyCodeLine{100     \textcolor{keywordflow}{if}( ret < 1)\{}
+\DoxyCodeLine{101         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     uint8\_t current\_mode = \mbox{\hyperlink{kxtj3__i2c_8c_af4d4e5ceb3562f0772b6abd2075a4a5a}{kxtj3\_get\_bit}}(\mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0], bit\_position);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"Address: \%02x, Position: \%d, rxbuf: \%02x, current\_mode: \%d desired mode: \%d "}, register\_address, bit\_position,  \mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0], current\_mode, mode);}
+\DoxyCodeLine{107     \textcolor{keywordflow}{if}(current\_mode == mode)\{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} current\_mode;}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}()[0] = \mbox{\hyperlink{kxtj3__i2c_8c_a208a73d1f2cb8ab778b4315f624640de}{kxtj3\_flip\_bit}}(\mbox{\hyperlink{kxtj3__i2c_8c_ac5aad128dc3fe57e5d46af36e4c19566}{kxtj3\_i2c\_get\_rxbuf\_ptr}}()[0], bit\_position);}
+\DoxyCodeLine{111     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"Address: \%02x, Position: \%d, txbuf: \%02x"}, register\_address, bit\_position, \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}()[0]);}
+\DoxyCodeLine{112     ret = \mbox{\hyperlink{kxtj3__i2c__rp2040_8c_a6b712c79c2ee8f15ad4ba15a6b562736}{kxtj3\_i2c\_write\_register\_blocking\_uint8}}(\mbox{\hyperlink{kxtj3__i2c_8c_a8b4baeaeacd25a0e1af30a2640265ffe}{kxtj3\_get\_i2c\_target\_address}}(), register\_address, length);}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if}(ret < 1)\{}
+\DoxyCodeLine{114         \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"WRITE ERROR \%d"}, ret);}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keywordflow}{return} mode;}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{kxtj3__i2c__rp2040_8c_a6b712c79c2ee8f15ad4ba15a6b562736}\label{kxtj3__i2c__rp2040_8c_a6b712c79c2ee8f15ad4ba15a6b562736}} 
+\index{kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}!kxtj3\_i2c\_write\_register\_blocking\_uint8@{kxtj3\_i2c\_write\_register\_blocking\_uint8}}
+\index{kxtj3\_i2c\_write\_register\_blocking\_uint8@{kxtj3\_i2c\_write\_register\_blocking\_uint8}!kxtj3\_i2c\_rp2040.c@{kxtj3\_i2c\_rp2040.c}}
+\doxysubsubsection{\texorpdfstring{kxtj3\_i2c\_write\_register\_blocking\_uint8()}{kxtj3\_i2c\_write\_register\_blocking\_uint8()}}
+{\footnotesize\ttfamily int kxtj3\+\_\+i2c\+\_\+write\+\_\+register\+\_\+blocking\+\_\+uint8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const}]{target\+\_\+addr,  }\item[{uint8\+\_\+t const}]{register\+\_\+addr,  }\item[{uint8\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+R\+P2040 specific I2C register write (blocking)
+
+This function is used internally to write data to the acceleromter via R\+P2040 I2C hardware interface 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+addr} & I2C address command is directed at \\
+\hline
+{\em register\+\_\+addr} & I2C register address to start writing at \\
+\hline
+{\em length} & of write (M\+AX I2\+C\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+read byte length if successful (value $>$ 0) otherwise status code (value $<$ 0) 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                                                                                                    \{}
+\DoxyCodeLine{63     \textcolor{keywordflow}{if}(length > \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}})}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab4fad3d291f40202a00468c865d78a07}{I2C\_RXBUF\_TOO\_SMALL}};}
+\DoxyCodeLine{65     \mbox{\hyperlink{kxtj3__debug_8h_adb8be0abb314b4cd0da20a9aa45a473e}{\_DBG}}(\textcolor{stringliteral}{"blocking register write target\_addr: \%02x, register\_addr: \%02x, tbxuf size: \%d"}, target\_addr, register\_addr, length);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{//Reserved I2C addresses }}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if}((target\_addr\&0x78) == 0 || (target\_addr \& 0x78) == 0x78)\{}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca3f4b06070538a2a07cf0e8dc68153ab8}{I2C\_INVALID\_TARGET\_ADDRESS}};}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordflow}{if}(!\mbox{\hyperlink{kxtj3__registers_8c_a7c35a91a2a5a8c2a5adfa307e9158f63}{kxtj3\_valid\_write\_address}}(register\_addr))\{}
+\DoxyCodeLine{73                 \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcab63bf96817b8bc41b747280b5f1192db}{I2C\_INVALID\_REGISTER\_ADDRESS}};}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{int} ret = 0;}
+\DoxyCodeLine{77     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}}; i >= 0; -\/-\/i)\{}
+\DoxyCodeLine{78         \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}()[i] = \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}()[i-\/1];}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80     \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}()[0] = register\_addr;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     ret = i2c\_write\_blocking\_until(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a79c7bc0605b3d6aea0efd5cf158ba1a2}{I2C\_INTERFACE}}, target\_addr, \mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}(), length+1, \textcolor{keyword}{false}, make\_timeout\_time\_ms(\mbox{\hyperlink{kxtj3__i2c__rp2040_8h_a2d170d4bf8ec07ffb0f602cbb70adf64}{I2C\_WRITE\_TIMEOUT\_MS}}));}
+\DoxyCodeLine{83     memset(\mbox{\hyperlink{kxtj3__i2c_8c_a9855ed8651718ac3e74c70bdd0eb92e5}{kxtj3\_i2c\_get\_txbuf\_ptr}}(), 0x0, \mbox{\hyperlink{kxtj3__i2c_8h_af1a0cdc5590f5636439b0a2930279798}{I2C\_BUF\_SIZE}});}
+\DoxyCodeLine{84     \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_TIMEOUT)}
+\DoxyCodeLine{85                 \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca847495e14645ab439982be67b6b537f7}{I2C\_WRITE\_TIMEOUT}};}
+\DoxyCodeLine{86         \textcolor{keywordflow}{if}(ret == PICO\_ERROR\_GENERIC)}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bcacb863f925667674b4e5774f5cba8a5e6}{I2C\_ADDR\_DIDNT\_ACK}};}
+\DoxyCodeLine{88         \textcolor{keywordflow}{if}(ret < 1)}
+\DoxyCodeLine{89                 \textcolor{keywordflow}{return} \mbox{\hyperlink{kxtj3__i2c_8h_aba1506bac98d101fc23b7b297ffa23bca6f8e10c6aabb2a57ea15e0047c5679b5}{I2C\_ERROR\_UNKNOWN}};}
+\DoxyCodeLine{90         }
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{93 \}}
+
+\end{DoxyCode}
