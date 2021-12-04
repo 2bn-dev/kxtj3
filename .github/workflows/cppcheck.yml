@@ -9,7 +9,5 @@ jobs:
         - uses: actions/checkout@v2
         - name: cppcheck-action
           uses: deep5050/cppcheck-action@v3.0
-        - name: publish report    
-          uses: mikeal/publish-to-github-action@master
-          env:
-            BRANCH_NAME: 'master'
+            with:
+              enable: warning, performance,stability,information,missingInclude

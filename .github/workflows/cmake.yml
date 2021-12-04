@@ -1,4 +1,4 @@
-name: CMake
+name: Build Example Apps for RP2040
 
 on:
   push:
