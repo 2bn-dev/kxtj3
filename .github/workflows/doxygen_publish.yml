@@ -12,8 +12,8 @@ jobs:
       - name: Build doxygen docs
         run: cmake --build ${{github.workspace}}/examples/build --config ${{env.BUILD_TYPE}}
       - name: Deploy
-         uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./build/doc_doxygen/
+        uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./build/doc_doxygen/
 
