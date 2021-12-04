@@ -43,13 +43,4 @@ jobs:
       with:
         name: Example application uf2 (flash) files
         path: examples/build/*.uf2
-    - name: cppcheck-action
-      uses: deep5050/cppcheck-action@v3.0
-      with:
-        enable: warning,performance,stability,information,missingInclude
-    - name: Archive cppcheck report
-      uses: actions/upload-artifact@v2
-      with:
-        name: CPPcheck report
-        path: cppcheck_report.txt
       
