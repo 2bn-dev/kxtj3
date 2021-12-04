@@ -12,7 +12,7 @@ add_executable(test_app
 
 # Update this to the correct path to the kxtj3/CMakeList.txt!
 
-include(/opt/kxtj3/CMakeLists.txt)
+include(../CMakeLists.txt)
 
 
 
