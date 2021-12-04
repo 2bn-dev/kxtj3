@@ -20,6 +20,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: fiam/arm-none-eabi-gcc@v1
+      with: 
+        release: '9-2019-q4'
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
