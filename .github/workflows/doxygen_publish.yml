@@ -4,6 +4,7 @@ on:
     types: published
 jobs: 
   build-docs:
+    runs-on: ubuntu-latest
     name: Build doxygen docs
     steps:
       - uses: actions/checkout@v2
