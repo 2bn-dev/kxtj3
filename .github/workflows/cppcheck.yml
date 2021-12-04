@@ -9,5 +9,5 @@ jobs:
         - uses: actions/checkout@v2
         - name: cppcheck-action
           uses: deep5050/cppcheck-action@v3.0
-            with:
-              enable: warning, performance,stability,information,missingInclude
+          with:
+            enable: warning, performance,stability,information,missingInclude
