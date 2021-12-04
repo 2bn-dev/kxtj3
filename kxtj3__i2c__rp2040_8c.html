@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: /home/runner/work/kxtj3/kxtj3/src/kxtj3_i2c_rp2040.h File Reference</title>
+<title>My Project: /home/runner/work/kxtj3/kxtj3/src/kxtj3_i2c_rp2040.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,156 +66,38 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">kxtj3_i2c_rp2040.h File Reference</div>  </div>
+<div class="title">kxtj3_i2c_rp2040.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>RP2040 specific I2C implementations for reading/writing registers over I2C.  
+<p>Code for RP2040 specific I2C implementation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;inttypes.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;pico/stdio.h&quot;</code><br />
-<code>#include &quot;pico/stdlib.h&quot;</code><br />
-<code>#include &quot;pico/time.h&quot;</code><br />
-<code>#include &quot;hardware/i2c.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="kxtj3__registers_8h_source.html">kxtj3_registers.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="kxtj3__i2c_8h_source.html">kxtj3_i2c.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="kxtj3__i2c__rp2040_8h_source.html">kxtj3_i2c_rp2040.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="kxtj3__debug_8h_source.html">kxtj3_debug.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for kxtj3_i2c_rp2040.h:</div>
+Include dependency graph for kxtj3_i2c_rp2040.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="kxtj3__i2c__rp2040_8h__incl.png" border="0" usemap="#_2home_2runner_2work_2kxtj3_2kxtj3_2src_2kxtj3__i2c__rp2040_8h" alt=""/></div>
-<!-- MAP 0 -->
+<div class="center"><img src="kxtj3__i2c__rp2040_8c__incl.png" border="0" usemap="#_2home_2runner_2work_2kxtj3_2kxtj3_2src_2kxtj3__i2c__rp2040_8c" alt=""/></div>
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="kxtj3__i2c__rp2040_8h__dep__incl.png" border="0" usemap="#_2home_2runner_2work_2kxtj3_2kxtj3_2src_2kxtj3__i2c__rp2040_8hdep" alt=""/></div>
-<!-- MAP 1 -->
-</div>
-</div>
-<p><a href="kxtj3__i2c__rp2040_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:afd84f048502b749115c9e05262ed6753"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#afd84f048502b749115c9e05262ed6753">PIN_I2C_SDA</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:afd84f048502b749115c9e05262ed6753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b5cc0023af0923f5e57d107bdd8f985"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a6b5cc0023af0923f5e57d107bdd8f985">PIN_I2C_SCL</a>&#160;&#160;&#160;9</td></tr>
-<tr class="separator:a6b5cc0023af0923f5e57d107bdd8f985"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a410dc1e7572425a449b5dc0f7ca9f69d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a410dc1e7572425a449b5dc0f7ca9f69d">I2C_SPEED</a>&#160;&#160;&#160;400*1000</td></tr>
-<tr class="separator:a410dc1e7572425a449b5dc0f7ca9f69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79c7bc0605b3d6aea0efd5cf158ba1a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a79c7bc0605b3d6aea0efd5cf158ba1a2">I2C_INTERFACE</a>&#160;&#160;&#160;i2c0</td></tr>
-<tr class="separator:a79c7bc0605b3d6aea0efd5cf158ba1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4fb56616c68132514747adc2632b311"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#af4fb56616c68132514747adc2632b311">I2C_READ_TIMEOUT_MS</a>&#160;&#160;&#160;50</td></tr>
-<tr class="separator:af4fb56616c68132514747adc2632b311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d170d4bf8ec07ffb0f602cbb70adf64"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a2d170d4bf8ec07ffb0f602cbb70adf64">I2C_WRITE_TIMEOUT_MS</a>&#160;&#160;&#160;50</td></tr>
-<tr class="separator:a2d170d4bf8ec07ffb0f602cbb70adf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adde012edc8e26fbd36f0241fb0aa2c0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#adde012edc8e26fbd36f0241fb0aa2c0c">kxtj3_i2c_init_local</a> ()</td></tr>
+<tr class="memitem:adde012edc8e26fbd36f0241fb0aa2c0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8c.html#adde012edc8e26fbd36f0241fb0aa2c0c">kxtj3_i2c_init_local</a> ()</td></tr>
 <tr class="separator:adde012edc8e26fbd36f0241fb0aa2c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb07dadf0f5a2485fd36214c26d85dba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#aeb07dadf0f5a2485fd36214c26d85dba">kxtj3_i2c_read_register_blocking_uint8</a> (uint8_t const target_addr, uint8_t const register_addr, uint8_t length)</td></tr>
+<tr class="memitem:aeb07dadf0f5a2485fd36214c26d85dba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8c.html#aeb07dadf0f5a2485fd36214c26d85dba">kxtj3_i2c_read_register_blocking_uint8</a> (uint8_t const target_addr, uint8_t const register_addr, uint8_t length)</td></tr>
 <tr class="separator:aeb07dadf0f5a2485fd36214c26d85dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b712c79c2ee8f15ad4ba15a6b562736"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a6b712c79c2ee8f15ad4ba15a6b562736">kxtj3_i2c_write_register_blocking_uint8</a> (uint8_t const target_addr, uint8_t const register_addr, uint8_t length)</td></tr>
-<tr class="separator:a6b712c79c2ee8f15ad4ba15a6b562736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa515541b6a3045a77ccfbc0206b701ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#aa515541b6a3045a77ccfbc0206b701ca">kxtj3_i2c_return_register_byte</a> (uint8_t const register_addr)</td></tr>
+<tr class="memitem:aa515541b6a3045a77ccfbc0206b701ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8c.html#aa515541b6a3045a77ccfbc0206b701ca">kxtj3_i2c_return_register_byte</a> (uint8_t const register_addr)</td></tr>
 <tr class="separator:aa515541b6a3045a77ccfbc0206b701ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34586a4eb36e58e821af38a767e39bef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8h.html#a34586a4eb36e58e821af38a767e39bef">kxtj3_i2c_set_register_bit_mode</a> (bool mode, uint8_t register_address, uint8_t bit_position)</td></tr>
+<tr class="memitem:a6b712c79c2ee8f15ad4ba15a6b562736"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8c.html#a6b712c79c2ee8f15ad4ba15a6b562736">kxtj3_i2c_write_register_blocking_uint8</a> (uint8_t const target_addr, uint8_t const register_addr, uint8_t length)</td></tr>
+<tr class="separator:a6b712c79c2ee8f15ad4ba15a6b562736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34586a4eb36e58e821af38a767e39bef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kxtj3__i2c__rp2040_8c.html#a34586a4eb36e58e821af38a767e39bef">kxtj3_i2c_set_register_bit_mode</a> (bool mode, uint8_t register_address, uint8_t bit_position)</td></tr>
 <tr class="separator:a34586a4eb36e58e821af38a767e39bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>RP2040 specific I2C implementations for reading/writing registers over I2C. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a79c7bc0605b3d6aea0efd5cf158ba1a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79c7bc0605b3d6aea0efd5cf158ba1a2">&#9670;&nbsp;</a></span>I2C_INTERFACE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_INTERFACE&#160;&#160;&#160;i2c0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af4fb56616c68132514747adc2632b311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4fb56616c68132514747adc2632b311">&#9670;&nbsp;</a></span>I2C_READ_TIMEOUT_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_READ_TIMEOUT_MS&#160;&#160;&#160;50</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a410dc1e7572425a449b5dc0f7ca9f69d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a410dc1e7572425a449b5dc0f7ca9f69d">&#9670;&nbsp;</a></span>I2C_SPEED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_SPEED&#160;&#160;&#160;400*1000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2d170d4bf8ec07ffb0f602cbb70adf64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d170d4bf8ec07ffb0f602cbb70adf64">&#9670;&nbsp;</a></span>I2C_WRITE_TIMEOUT_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_WRITE_TIMEOUT_MS&#160;&#160;&#160;50</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6b5cc0023af0923f5e57d107bdd8f985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b5cc0023af0923f5e57d107bdd8f985">&#9670;&nbsp;</a></span>PIN_I2C_SCL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PIN_I2C_SCL&#160;&#160;&#160;9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afd84f048502b749115c9e05262ed6753"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd84f048502b749115c9e05262ed6753">&#9670;&nbsp;</a></span>PIN_I2C_SDA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PIN_I2C_SDA&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>Code for RP2040 specific I2C implementation. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="adde012edc8e26fbd36f0241fb0aa2c0c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adde012edc8e26fbd36f0241fb0aa2c0c">&#9670;&nbsp;</a></span>kxtj3_i2c_init_local()</h2>
 
