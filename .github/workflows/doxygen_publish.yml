@@ -6,6 +6,14 @@ jobs:
   build-docs:
     name: Build doxygen docs
     steps:
-      - uses: lukka/get-cmake@latest
       - uses: actions/checkout@v2
-      - uses: lukka/run-cmake@v10
+      - name: Configure CMake
+        run: cmake -B ${{github.workspace}}/examples/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_DOCS=ON
+      - name: Build doxygen docs
+        run: cmake --build ${{github.workspace}}/examples/build --config ${{env.BUILD_TYPE}}
+      - name: Deploy
+         uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./build/doc_doxygen/
+
